@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css'
 
 const schedule = {
   title: 'CS Courses Schedule',
@@ -27,7 +28,7 @@ const schedule = {
 };
 
 const CourseList = ({ courses }) => (
-  <div>
+  <div className = 'course-list'>
     { Object.values(courses).map(course => <Course key = { course.id.slice[2,4] } course = { course } />) }
   </div>
 );
@@ -37,13 +38,16 @@ const Banner = ({ title }) => (
 );
 
 const Course = ({ course }) => (
-  <div>
-    { course.id } : { course.title }
+  <div className = "card m-1 p-2">
+    <div className = "card-body">
+      <div className = "card-title">{ course.id }</div>
+      <div className = "card-text">{ course.title }</div>
+    </div>
   </div>
 );
 
 const App = () => (
-  <div>
+  <div className="container">
     < Banner title = {schedule.title} />
     < CourseList courses = {schedule.courses} />
   </div>
